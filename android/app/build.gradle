@@ -78,16 +78,19 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
-
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialCommunityIcons.ttf'] // Name of the font files you want to copy
+]
 apply from: "../../node_modules/react-native/react.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
  *   - An APK that only works on x86 devices
- * The advantage is the size of the APK is reduced by about 4MB.
+ * The advantage is the size of the APK is reduced by about 4MB
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
