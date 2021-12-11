@@ -17,7 +17,11 @@ export default function CreateMenu() {
   const route = useRoute();
 
   function handleNavigateDetail() {
-    const fd = {
+    if(name==''||description==''||ingredients==''||price==''){
+     return ;
+    
+  }
+  const fd = {
       name: name,
       description: description,
       ingredients: ingredients,
@@ -26,7 +30,6 @@ export default function CreateMenu() {
 
     navigation.navigate('MenuDetailPage', {fd});
   }
-
   return (
     <SafeAreaView>
       <Text style={styles.menu_name}>{route.params.menu.name}</Text>
